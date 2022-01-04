@@ -1,0 +1,27 @@
+﻿
+.aboutZ {
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(234, 249,251,0.63) 0.1%, rgba(239,249,251,0.63) 90.1%);
+}
+}
+
+#header{
+    margin:500px;
+    padding-bottom:70px;
+}
+.table {
+    
+    position: relative;
+    height: 300px;
+    width: 300px;
+}
+.table img {
+        position: absolute;
+        right: 0;
+        bottom: 0
+}
+
+.para {
+    text-align: center;
+    padding-top:50px;
+}
+

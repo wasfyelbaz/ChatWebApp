@@ -24,17 +24,13 @@ namespace ChatWebApp.Controllers
             con = new SqlConnection(connetionString);
             con.Open();
         }
-
-
         public ActionResult Help()
         {
             return View();
         }
-      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
         public ActionResult Index()
@@ -64,8 +60,6 @@ namespace ChatWebApp.Controllers
 		    con.Close();
         }
 
-        
-
         public ActionResult Chat(string msg)
         {
             Message message = new Message()
@@ -77,9 +71,7 @@ namespace ChatWebApp.Controllers
 
             AddMessage(message);
 
-
-            return PartialView("Message" , message);
-
+            return PartialView("Message", message);
         }
 
     }
