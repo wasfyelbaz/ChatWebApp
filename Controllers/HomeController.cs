@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using ChatWebApp.Models;
 namespace ChatWebApp.Controllers
 {
     [Authorize]
@@ -13,11 +13,7 @@ namespace ChatWebApp.Controllers
         {
             return View();
         }
-        public ActionResult Chat()
-        {
-            return View();
-        }
-
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -26,8 +22,24 @@ namespace ChatWebApp.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcom To our chatting application";
+            
             return View();
         }
+        public ActionResult StartChat(string name)
+        {
+            Session["user"] = name;
+            return View("Chat");
+        }
+        public ActionResult Chat(string msg)
+        {
+            Message message = new Message()
+            {
+                Name =Session["user"] as String ,
+                Time = DateTime.Now ,
+                Content  = msg 
+            };
+            return PartialView("Message" , message);
+        }
+
     }
 }

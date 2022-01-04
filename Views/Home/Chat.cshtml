@@ -1,7 +1,14 @@
 ﻿@{
     ViewBag.Title = "Chat";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>Chatting Application</h2>
+<div id="messages"></div>
+@using (Ajax.BeginForm("Chat", new AjaxOptions() {
+    HttpMethod = "POST" ,
+    InsertionMode = InsertionMode.InsertAfter ,
+    UpdateTargetId = "messages" }))
+            {
+               @Html.TextBox("msg")
+              <input type="submit" value="Send" />
+            }
 
-<p>xxxxx</p>

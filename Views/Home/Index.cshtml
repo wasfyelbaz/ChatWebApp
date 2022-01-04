@@ -1,6 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Index";
 }
-<h2>@ViewBag.Message</h2>
+<h2>Chat Home page</h2>
+@using (Html.BeginForm("StartChat" , "Home"))
+{
+   @Html.Label("Enter name")
+   @Html.TextBox("name")
+   <input type="submit" value="ENTER"/>
+}
+
 
 
