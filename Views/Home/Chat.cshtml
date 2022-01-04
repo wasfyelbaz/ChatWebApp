@@ -3,15 +3,19 @@
 }
 
 <h2>Chatting Application</h2>
-<div id="messages"></div>
 
-@using (Ajax.BeginForm("Chat", new AjaxOptions() {
-    HttpMethod = "POST" ,
-    InsertionMode = InsertionMode.InsertAfter ,
-    UpdateTargetId = "messages" }))
- {
- @Html.TextBox("msg")
- <input type="submit" id="submit" value="Send" />
- }
+@using (Ajax.BeginForm("Chat", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.InsertAfter,
+    UpdateTargetId = "messages"
+}))
+{
+    @Html.TextBox("msg")
+    <input type="submit" id="submit" value="Send" />
+    <input type="submit" id="refresh" value="Send" style="display: none;" />
+}
+
+<div id="messages"></div>
 
 <script src="~/Scripts/functions.js"></script>

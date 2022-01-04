@@ -55,6 +55,8 @@ namespace ChatWebApp.Models
             command.Dispose();
             con.Close();
 
+            messages.Reverse();
+
             return messages;
         }
 

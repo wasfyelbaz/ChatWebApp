@@ -69,7 +69,10 @@ namespace ChatWebApp.Controllers
                 Content = msg 
             };
 
-            AddMessage(message);
+            if (message.Content != "")
+            {
+                AddMessage(message);
+            }
 
             return PartialView("Message", message);
         }
