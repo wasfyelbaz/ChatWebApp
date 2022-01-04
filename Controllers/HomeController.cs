@@ -9,7 +9,11 @@ namespace ChatWebApp.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Help()
+        {
+            return View();
+        }
+        public ActionResult Chat()
         {
             return View();
         }
@@ -20,11 +24,9 @@ namespace ChatWebApp.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult Index()
         {
-            ViewBag.Message = "Your contact page.";
-
+            ViewBag.Message = "Welcom To our chatting application";
             return View();
         }
     }
