@@ -4,11 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ChatWebApp.Models;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 namespace ChatWebApp.Controllers
 {
     [Authorize]
+
     public class HomeController : Controller
     {
+
+        private SqlConnection con;
+        //To Handle connection related activities
+        private void connection()
+        {
+            string connetionString;
+            connetionString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Desktop\C#\ChatWebApp\App_Data\aspnet-ChatWebApp-20220103092846.mdf;Initial Catalog=aspnet-ChatWebApp-20220103092846;Integrated Security=True";
+            con = new SqlConnection(connetionString);
+            con.Open();
+        }
+
+
         public ActionResult Help()
         {
             return View();
@@ -22,7 +39,6 @@ namespace ChatWebApp.Controllers
         }
         public ActionResult Index()
         {
-            
             return View();
         }
         public ActionResult StartChat(string name)
@@ -30,14 +46,58 @@ namespace ChatWebApp.Controllers
             Session["user"] = name;
             return View("Chat");
         }
+
+        public void AddMessage(Message message)
+        {
+            connection();
+
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            string sql = $"Insert into AspNetMassages(sender,time,content) values('{message.Name}', '{message.Time}', '{message.Content}')";
+
+            command = new SqlCommand(sql, con);
+            adapter.InsertCommand = new SqlCommand(sql, con);
+            adapter.InsertCommand.ExecuteNonQuery();
+
+            command.Dispose(); 
+		    con.Close();
+        }
+
+        public List<Message> ShowMessages()
+        {
+            connection();
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql, Output = " ";
+            sql = "Select TutorialID,TutorialName from demotb";
+
+            command = new SqlCommand(sql, con);
+
+            dataReader = sqlquery.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Output = Output + dataReader.GetValue(0) + "-" + dataReader.GetValue(1) + "</br>";
+            }
+
+            Response.Write(Output);
+            dataReader.Close();
+            command.dispose();
+            conn.Close();
+        }
+
         public ActionResult Chat(string msg)
         {
             Message message = new Message()
             {
-                Name =Session["user"] as String ,
+                Name = Session["user"] as String ,
                 Time = DateTime.Now ,
-                Content  = msg 
+                Content = msg 
             };
+
+            AddMessage(message);
+
             return PartialView("Message" , message);
         }
 
