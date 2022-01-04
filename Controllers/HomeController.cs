@@ -64,41 +64,22 @@ namespace ChatWebApp.Controllers
 		    con.Close();
         }
 
-        public List<Message> ShowMessages()
-        {
-            connection();
-
-            SqlCommand command;
-            SqlDataReader dataReader;
-            String sql, Output = " ";
-            sql = "Select TutorialID,TutorialName from demotb";
-
-            command = new SqlCommand(sql, con);
-
-            dataReader = sqlquery.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Output = Output + dataReader.GetValue(0) + "-" + dataReader.GetValue(1) + "</br>";
-            }
-
-            Response.Write(Output);
-            dataReader.Close();
-            command.dispose();
-            conn.Close();
-        }
+        
 
         public ActionResult Chat(string msg)
         {
             Message message = new Message()
             {
                 Name = Session["user"] as String ,
-                Time = DateTime.Now ,
+                Time = DateTime.Now.ToString(),
                 Content = msg 
             };
 
             AddMessage(message);
 
+
             return PartialView("Message" , message);
+
         }
 
     }

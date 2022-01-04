@@ -1,7 +1,8 @@
 ﻿@model ChatWebApp.Models.Message
 
-<div>
- <h4>@Model.Name </h4>
- <h6>@Model.Time</h6>
- <p>@Model.Content </p>
-</div>
+@foreach (var message in ChatWebApp.Models.Message.ShowMessages())
+{
+    <h4>@message.Name </h4>
+    <h6>@message.Time</h6>
+    <p>@message.Content </p>
+}
