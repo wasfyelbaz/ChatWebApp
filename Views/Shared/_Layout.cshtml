@@ -4,8 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr") 
+    @Styles.Render("~/content/about.css")
+    @Styles.Render("~/fonts/material-icon/css/material-design-iconic-font.min.css")
 
 </head>
 <body>
@@ -34,6 +36,9 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery/jquery.min.js")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 

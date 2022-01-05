@@ -6,7 +6,7 @@
 
 #header{
     margin:500px;
-    padding-bottom:70px;
+    padding-bottom:20px;
 }
 .table {
     
@@ -17,11 +17,31 @@
 .table img {
         position: absolute;
         right: 0;
-        bottom: 0
+        bottom: 0;
 }
+
 
 .para {
     text-align: center;
     padding-top:50px;
 }
+ul {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    text-align: left;
+}
+.copyright {
+    text-align: center;
+}
+.helloMsg {
+    padding-top:5%;
+    text-align: center;
+}
+.space{
+    padding:2.5%;
+}
+
+
 

@@ -1,10 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home Page";
 }
-<h2>Chat Home page</h2>
-@using (Html.BeginForm("StartChat" , "Home"))
-{
-   @Html.Label("Enter name")
-   @Html.TextBox("name")
-   <input type="submit" value="ENTER"/>
-}
+
+<section>
+    <h2>Chat Home page</h2>
+    @using (Html.BeginForm("StartChat", "Home"))
+    {
+        @Html.Label("Enter name")
+        @Html.TextBox("name")
+        <input type="submit" value="ENTER" />
+    }
+
+    <div class="space"></div>
+    <div class="container">
+        <section>
+            <span>
+                &nbsp;
+                &nbsp;
+
+            </span>
+            <h1 class="helloMsg">Welcome to <br />Prowl Patrol's' Chatting Application</h1>
+            <div class="table">
+                <figure><img src="\Content\images\table.png" alt="sing up image"></figure>
+            </div>
+        </section>
+    </div>
+
+</section>

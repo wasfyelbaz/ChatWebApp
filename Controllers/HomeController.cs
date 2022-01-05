@@ -20,7 +20,7 @@ namespace ChatWebApp.Controllers
         private void connection()
         {
             string connetionString;
-            connetionString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\PC\Desktop\C#\ChatWebApp\App_Data\aspnet-ChatWebApp-20220103092846.mdf;Initial Catalog=aspnet-ChatWebApp-20220103092846;Integrated Security=True";
+            connetionString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=E:\Ain Shams\WEB\F6\App_Data\aspnet-ChatWebApp-20220103092846.mdf;Initial Catalog=aspnet-ChatWebApp-20220103092846;Integrated Security=True";
             con = new SqlConnection(connetionString);
             con.Open();
         }
